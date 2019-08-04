@@ -1,6 +1,7 @@
 package com.shanswanlow.travelmantics;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,6 +81,7 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
     }
 
     public class DealViewHolder extends RecyclerView.ViewHolder
+        implements View.OnClickListener
     {
         TextView title;
         TextView description;
@@ -90,6 +92,7 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
             title = itemView.findViewById(R.id.dealTitle);
             description = itemView.findViewById(R.id.dealDescription);
             price = itemView.findViewById(R.id.dealPrice);
+            itemView.setOnClickListener(this);
         }
 
         public void bind (TravelDeal deal)
@@ -97,6 +100,16 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
             title.setText(deal.getTitle());
             description.setText(deal.getDescription());
             price.setText(deal.getPrice());
+        }
+
+        @Override
+        public void onClick(View view)
+        {
+            int itemPosition = getAdapterPosition();
+            TravelDeal selectedDeal = deals.get(itemPosition);
+            Intent editIntent = new Intent(view.getContext(), DealActivity.class);
+
+
         }
     }
 }

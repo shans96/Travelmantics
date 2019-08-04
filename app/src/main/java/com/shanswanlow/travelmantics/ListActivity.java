@@ -39,7 +39,7 @@ public class ListActivity extends AppCompatActivity
     {
         if (item.getItemId() == R.id.insert_deal_menu)
         {
-            Intent createDealIntent = new Intent(this, InsertActivity.class);
+            Intent createDealIntent = new Intent(this, DealActivity.class);
             startActivity(createDealIntent);
         }
         return true;
