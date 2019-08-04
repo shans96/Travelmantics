@@ -1,7 +1,9 @@
 package com.shanswanlow.travelmantics;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,7 +33,6 @@ public class DealActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
-        FirebaseUtil.openFirebaseReference("traveldeals");
         mFirebaseDatabase = FirebaseUtil.mFirebaseDatabase;
         mDatabaseReference = FirebaseUtil.mDatabaseReference;
         textTitle = findViewById(R.id.textTitle);
@@ -74,6 +75,19 @@ public class DealActivity extends AppCompatActivity
     {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.save_menu, menu);
+        if (FirebaseUtil.isAdmin == true)
+        {
+            menu.findItem(R.id.delete_menu).setVisible(true);
+            menu.findItem(R.id.save_menu).setVisible(true);
+            enableEditTexts(true);
+            Log.d("admin", "is admin");
+        }
+        else
+        {
+            menu.findItem(R.id.delete_menu).setVisible(false);
+            menu.findItem(R.id.save_menu).setVisible(false);
+            enableEditTexts(false);
+        }
         return true;
     }
 
@@ -115,5 +129,12 @@ public class DealActivity extends AppCompatActivity
         textDescription.setText("");
         textPrice.setText("");
         textTitle.requestFocus();
+    }
+
+    private void enableEditTexts(boolean isEnabled)
+    {
+        textTitle.setEnabled(isEnabled);
+        textDescription.setEnabled(isEnabled);
+        textPrice.setEnabled(isEnabled);
     }
 }
