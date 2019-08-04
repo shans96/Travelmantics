@@ -10,6 +10,16 @@ public class TravelDeal implements Serializable
     private String price;
     private String imageUrl;
 
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    private String imageName;
+
     public String getId() {
         return id;
     }
@@ -52,12 +62,13 @@ public class TravelDeal implements Serializable
 
     public TravelDeal(){}
 
-    public TravelDeal(String title, String description, String price, String imageUrl)
+    public TravelDeal(String title, String description, String price, String imageUrl, String imageName)
     {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
         this.imageUrl = imageUrl;
+        this.imageName = imageName;
     }
 }

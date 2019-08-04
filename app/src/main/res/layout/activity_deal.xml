@@ -49,4 +49,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPrice" />
+
+    <Button
+        android:id="@+id/uploadImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin_standard"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="@dimen/text_margin_standard"
+        android:layout_marginEnd="@dimen/text_margin_standard"
+        android:layout_marginRight="8dp"
+        android:text="@string/upload_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDescription" />
+
+    <ImageView
+        android:id="@+id/destinationPreview"
+        android:layout_width="198dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="@dimen/text_margin_standard"
+        android:layout_marginEnd="@dimen/text_margin_standard"
+        android:layout_marginRight="@dimen/text_margin_standard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadImage"
+        app:srcCompat="@android:color/transparent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
